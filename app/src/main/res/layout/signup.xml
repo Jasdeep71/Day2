@@ -24,22 +24,6 @@
         android:textSize="20dp"
         android:textStyle="bold" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="match_parent"
-        android:layout_height="216dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_gravity="center"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:contentDescription="@string/picture"
-        app:srcCompat="@drawable/photo" />
-
     <EditText
         android:id="@+id/InputName"
         android:layout_width="match_parent"
@@ -100,11 +84,14 @@
 
     <Button
         android:id="@+id/Submit"
-        android:layout_width="221dp"
-        android:layout_height="36dp"
+        android:layout_width="222dp"
+        android:layout_height="69dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
         android:layout_marginTop="50dp"
-        android:layout_marginBottom="105dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginRight="98dp"
+        android:layout_marginBottom="83dp"
         android:text="@string/submit" />
 </RelativeLayout>
