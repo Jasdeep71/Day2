@@ -5,7 +5,8 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#009688"
+    android:animateLayoutChanges="true"
+    android:background="#00B0FF"
     android:orientation="vertical"
     tools:context=".Signup">
 
@@ -31,7 +32,9 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="427dp"
         android:autofillHints="Name"
+        android:clickable="true"
         android:ems="10"
+        android:fadingEdge="horizontal|vertical|none"
         android:hint="@string/user_name"
         android:inputType="textPersonName"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
