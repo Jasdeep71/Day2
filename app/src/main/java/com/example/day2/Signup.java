@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.net.PasswordAuthentication;
 import java.util.ArrayList;
 import java.util.Set;
@@ -44,6 +46,12 @@ public class Signup extends AppCompatActivity {
                    if(CalculateStrenght(password)>4) {
                         timetostart();
                     }
+                   else{
+                       Toast.makeText(Signup.this, "Please enter a password consisting of number, capital letter, special charachteristics and small alphabet", Toast.LENGTH_SHORT).show();
+                   }
+                }
+                else {
+                    Toast.makeText(Signup.this, "No field can be left empty", Toast.LENGTH_SHORT).show();
                 }
             }
         });
