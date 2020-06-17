@@ -1,5 +1,6 @@
 package com.example.day2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -8,17 +9,25 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.net.PasswordAuthentication;
 import java.util.ArrayList;
 import java.util.Set;
 
 public class Signup extends AppCompatActivity {
+    private FirebaseAuth mAuth;
     private Button submit;
     String username,email,password;
 
@@ -31,6 +40,7 @@ public class Signup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
+        mAuth = FirebaseAuth.getInstance();
         submit = findViewById(R.id.Submit);
 
         usernameInput = findViewById(R.id.InputName);
@@ -44,7 +54,8 @@ public class Signup extends AppCompatActivity {
                 password = passwordInput.getText().toString();
                 if(!username.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
                    if(CalculateStrenght(password)>4) {
-                        timetostart();
+                       WhenStart();
+                       timetostart();
                     }
                    else{
                        Toast.makeText(Signup.this, "Please enter a password consisting of number, capital letter, special charachteristics and small alphabet", Toast.LENGTH_SHORT).show();
@@ -56,9 +67,28 @@ public class Signup extends AppCompatActivity {
             }
         });
         Signupclass.Person pers = new Signupclass.Person(email,username,password);
-//        p.insert(pers);
     }
     public Signupclass p  = new Signupclass();
+
+    public void WhenStart() {
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+            if (!email.isEmpty() && !password.isEmpty()) {
+                mAuth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                } else {
+                                    Toast.makeText(Signup.this, "Authentication failed.",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+            }
+//        updateUI(currentUser);
+    }
+
 
     @SuppressLint("SetTextI18n")
     public int CalculateStrenght(String s){
