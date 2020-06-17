@@ -28,7 +28,7 @@ public class Signin extends AppCompatActivity {
         setContentView(R.layout.signin);
         mAuth = FirebaseAuth.getInstance();
         timeto = findViewById(R.id.button4);
-        emailInput1 = findViewById(R.id.editText);
+        emailInput1 = findViewById(R.id.Text);
         passwordInput1 = findViewById(R.id.editText2);
         timeto.setOnClickListener(new View.OnClickListener() {
             @Override

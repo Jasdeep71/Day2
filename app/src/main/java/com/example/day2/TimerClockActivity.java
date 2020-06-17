@@ -3,6 +3,7 @@ package com.example.day2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -85,7 +86,17 @@ public class TimerClockActivity extends AppCompatActivity {
                 updateCountDownText();
             }
         });
+        FinishTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nextpage();
+            }
+        });
 
+    }
+    public void nextpage(){
+//        Intent intent = new Intent(TimerClockActivity.this,ScoreBoard.class);
+//        startActivity(intent.cloneFilter());
     }
     private void setTime(long milliseconds) {
         mStartTimeInMillis = milliseconds;

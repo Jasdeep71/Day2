@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -128,6 +129,7 @@ public class Signup extends AppCompatActivity {
             }
         }
 
+//        MaterialButton tvPasswordStrength = null;
 //        if (strengthPoints <= 3)
 //        {
 //            tvPasswordStrength.setText("Password Strength : LOW");
@@ -140,7 +142,7 @@ public class Signup extends AppCompatActivity {
 //        else if (strengthPoints <= 9){
 //            tvPasswordStrength.setText("Password Strength : HIGH");
 //            tvPasswordStrength.setBackgroundColor(Color.GREEN);
-
+//
 //        }
         return strengthPoints;
     }
