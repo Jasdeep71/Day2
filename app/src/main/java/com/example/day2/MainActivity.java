@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -15,6 +18,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button button = findViewById(R.id.button_first);
+        FirebaseAuth mAuth;
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user!= null){
+            Intent intent = new Intent(MainActivity.this,TimerClockActivity.class);
+
+            String email = user.getEmail();
+            int i = 0;
+            for (i = 0; i < email.length(); i++) {
+                if(email.charAt(i)=='@'){
+                    break;
+                }
+            }
+            Person1.hashcode = email.substring(0,i);
+            startActivity(intent);
+            finish();
+        }
         Button button1 = findViewById(R.id.button_second);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

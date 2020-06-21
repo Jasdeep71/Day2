@@ -4,28 +4,19 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.PeriodicSync;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import java.net.PasswordAuthentication;
-import java.util.ArrayList;
-import java.util.Set;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Signup extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -35,7 +26,7 @@ public class Signup extends AppCompatActivity {
     EditText usernameInput;
     EditText emailInput;
     EditText passwordInput;
-    EditText etPassword;
+    public DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +34,6 @@ public class Signup extends AppCompatActivity {
         setContentView(R.layout.signup);
         mAuth = FirebaseAuth.getInstance();
         submit = findViewById(R.id.Submit);
-
         usernameInput = findViewById(R.id.InputName);
         emailInput = findViewById(R.id.EmailInput);
         passwordInput = findViewById(R.id.PasswordInput);
@@ -56,6 +46,16 @@ public class Signup extends AppCompatActivity {
                 if(!username.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
                    if(CalculateStrenght(password)>4) {
                        WhenStart();
+                       FirebaseDatabase database = FirebaseDatabase.getInstance();
+                       int i;
+                       for (i = 0; i < email.length(); i++) {
+                           if(email.charAt(i)=='@'){
+                               break;
+                           }
+                       }
+                       Person1.hashcode = email.substring(0,i);
+                       myRef = database.getReference(Person1.hashcode);
+                       myRef.setValue(new TimeInitialisation(0,0,0));
                        timetostart();
                     }
                    else{
@@ -67,9 +67,7 @@ public class Signup extends AppCompatActivity {
                 }
             }
         });
-        Signupclass.Person pers = new Signupclass.Person(email,username,password);
     }
-    public Signupclass p  = new Signupclass();
 
     public void WhenStart() {
         FirebaseUser currentUser = mAuth.getCurrentUser();

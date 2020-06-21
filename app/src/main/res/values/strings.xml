@@ -38,4 +38,8 @@
     <string name="start">start</string>
     <string name="nothing">Nothing</string>
     <string name="Congratulations" />
+    <string name="congratulations">Congratulations</string>
+    <string name="PreviousScore" />
+    <string name="PresentScore" />
+    <string name="TotalScore" />
 </resources>

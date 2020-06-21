@@ -15,6 +15,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Signin extends AppCompatActivity {
     private Button timeto;
@@ -40,7 +42,6 @@ public class Signin extends AppCompatActivity {
                 }
                 else {
                     SigninUser();
-//                    timetostart();
                 }
             }
         });
@@ -56,6 +57,14 @@ public class Signin extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
 //                            Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            Person1.email = email;
+                            int i = 0;
+                            for (i = 0; i < email.length(); i++) {
+                                if(email.charAt(i)=='@'){
+                                    break;
+                                }
+                            }
+                            Person1.hashcode = email.substring(0,i);
                             timetostart();
 //                            updateUI(user);
                         } else {
