@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "204728311685",
+    "firebase_url": "https://day2-b51fb.firebaseio.com",
+    "project_id": "day2-b51fb",
+    "storage_bucket": "day2-b51fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:204728311685:android:6f6c7b336bed6f4bf86eec",
+        "android_client_info": {
+          "package_name": "com.example.day2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "204728311685-lp7l0jacnaj9hoqc9t35tccbf0u48iv1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3mVwySLFsNmroehOkX3Uw1UOaT1FkL00"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "204728311685-lp7l0jacnaj9hoqc9t35tccbf0u48iv1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
