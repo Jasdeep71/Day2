@@ -147,5 +147,6 @@ public class Signup extends AppCompatActivity {
     private void timetostart(){
         Intent intent = new Intent(this,Signin.class);
         startActivity(intent);
+        finish();
     }
 }

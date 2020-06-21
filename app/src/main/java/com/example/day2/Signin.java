@@ -81,6 +81,7 @@ public class Signin extends AppCompatActivity {
     public void timetostart(){
         Intent intent = new Intent(Signin.this,TimerClockActivity.class);
         startActivity(intent.cloneFilter());
+        finish();
     }
 
 }

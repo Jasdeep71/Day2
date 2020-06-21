@@ -54,10 +54,12 @@ public class MainActivity extends AppCompatActivity {
     private void openActivity2(){
         Intent intent = new Intent(this,Signin.class);
         startActivity(intent);
+        finish();
     }
     private void openActivity3(){
         Intent intent = new Intent(this,Signup.class);
         startActivity(intent);
+        finish();
     }
 
 }

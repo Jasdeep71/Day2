@@ -52,17 +52,7 @@ public class TimerClockActivity extends AppCompatActivity {
         return per;
     }
     private void database(final double ans){
-//        Toast.makeText(TimerClockActivity.this,Double.toString(ans),Toast.LENGTH_SHORT).show();
         read(ans);
-//        FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        DatabaseReference myRef = database.getReference(Person1.hashcode);
-
-
-//        Toast.makeText(TimerClockActivity.this, Double.toString(temp.getPresentScore())+" - "+Double.toString(temp.getTotalScore())+" - "+temp.getPreviousScore(),Toast.LENGTH_SHORT).show();
-//        myRef.setValue(TimeInitialisation.continu);
-//                double previous = TimeInitialisation.continu.getPreviousScore();
-//                double present = TimeInitialisation.continu.getPresentScore();
-//                double total = TimeInitialisation.continu.getTotalScore();
     }
     public void read(final double NewTime){
         // Read from the database
@@ -166,9 +156,6 @@ public class TimerClockActivity extends AppCompatActivity {
 
     public Intent nextpage(String previous,String present,String total){
         Intent intent = new Intent(TimerClockActivity.this,score.class);
-//        previous = Math.round(previous*100.0)/100.0;
-//        present = Math.round(present*100.0)/100.0;
-//        total = Math.round(total*100.0)/100.0;
         String p = previous+"/"+present+"@"+total;
         intent.putExtra("hello",p);
         return intent;
